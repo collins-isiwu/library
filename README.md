@@ -12,3 +12,8 @@ This django project is made up of three apps namely:
 4. ..
 
 ##### accounts App
+The accounts app is an app of the django project that handles the logic for login, signup and logout. It contains the CustomUser model of the database.
+
+accounts/form.py contains the UserChangeForm and UserCreationForm for changing and creating the user information. 
+
+Head to accounts/test.py The file contains test for CustomUser.
