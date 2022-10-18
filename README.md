@@ -28,3 +28,7 @@ This app is incharge of delivering all my templates to the end-user while simult
 Head to pages/test.py, you will see the tests that I wrote for the pages app. Class "HomepageTests" contains functions testing different parts of the homepage. You can run this test within docker using: $ docker-compose exec web python manage.py test pages 
 in your terminal.
 
+
+#### User Registration
+Django's built-in features for user registeration and authentication came in handy here. [Django's docs on auth app](https://docs.djangoproject.com/en/4.0/topics/auth/default/) was clear on how to user Django built-in features. Django also provided the necessary views for the login, logout and user registration functionalities [par it's official repository](https://github.com/django/django/blob/b9cf764be62e77b4777b3a75ec256f6209a57671/django/contrib/auth/views.py). Django's url.py file for the view.py of auth [repository is](https://github.com/django/django/blob/b9cf764be62e77b4777b3a75ec256f6209a57671/django/contrib/auth/urls.py) and well documented [here](https://docs.djangoproject.com/en/4.0/topics/auth/default/#module-django.contrib.auth.views) 
+
