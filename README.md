@@ -17,7 +17,7 @@ The accounts app is an app of the django project that handles the logic for logi
 accounts/form.py contains the UserChangeForm and UserCreationForm for changing and creating the user information. 
 
 ##### Test
-Head to accounts/test.py The file contains test for CustomUser. I write code to make sure that the custom user model is actually working and is able to create a user, superuser. I also checked for is_superuser(), is_staff() modules while testing the accounts app.
+Head to accounts/test.py The file contains test for CustomUser. I write code to make sure that the custom user model is actually working and is able to create a user, superuser. I also checked for is_superuser(), is_staff() modules while testing the accounts app. In line 6 of the file, I defined a setUp function that retains self.response which helped me to reduce redundancy.
 
 
 #### 2. Pages App
