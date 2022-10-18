@@ -20,4 +20,4 @@ Head to accounts/test.py The file contains test for CustomUser.
 
 
 ##### templates App
-This app is incharge of delivering all my templates to the end-user while simultaneously interacting with the database to create a dynamic page.
+This app is incharge of delivering all my templates to the end-user while simultaneously interacting with the database to create a dynamic page. I used Django's module TemplateView to write my pages/views.py. The views is a class-based views (CBVs). CBVs utilize OOP principles, which allow us to use inheritance, reuse code, and generally write better and cleaner code.
