@@ -8,7 +8,7 @@ My intention while programming is to showcase my python OOP and Django prowess. 
 This django project is made up of three apps namely:
 1. accounts
 2. bookstore
-3. pages
+3. templates
 4. ..
 
 ##### accounts App
@@ -17,3 +17,7 @@ The accounts app is an app of the django project that handles the logic for logi
 accounts/form.py contains the UserChangeForm and UserCreationForm for changing and creating the user information. 
 
 Head to accounts/test.py The file contains test for CustomUser.
+
+
+##### templates App
+This app is incharge of delivering all my templates to the end-user while simultaneously interacting with the database to create a dynamic page.
