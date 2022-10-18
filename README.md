@@ -11,7 +11,7 @@ This django project is made up of three apps namely:
 3. bookstore
 4. ..
 
-#### accounts App
+#### Accounts App
 The accounts app is an app of the django project that handles the logic for login, signup and logout. It contains the CustomUser model of the database.
 
 accounts/form.py contains the UserChangeForm and UserCreationForm for changing and creating the user information. 
@@ -20,7 +20,7 @@ accounts/form.py contains the UserChangeForm and UserCreationForm for changing a
 Head to accounts/test.py The file contains test for CustomUser. I write code to make sure that the custom user model is actually working and is able to create a user, superuser. I also checked for is_superuser(), is_staff() modules while testing the accounts app.
 
 
-#### templates App
+#### Pages App
 This app is incharge of delivering all my templates to the end-user while simultaneously interacting with the database to create a dynamic page. I used Django's module TemplateView to write my pages/views.py. The views is a class-based views (CBVs). CBVs utilize OOP principles, which allow us to use inheritance, reuse code, and generally write better and cleaner code.
 
 ##### Test
