@@ -6,7 +6,7 @@ My intention while programming is to showcase my python OOP and Django prowess. 
 
 
 #### User Registration
-Django's built-in features for user registeration and authentication came in handy here. [Django's docs on auth app](https://docs.djangoproject.com/en/4.0/topics/auth/default/) was clear on how to user Django built-in features. Django also provided the necessary views for the login, logout and user registration functionalities [par it's official repository](https://github.com/django/django/blob/b9cf764be62e77b4777b3a75ec256f6209a57671/django/contrib/auth/views.py). Django's url.py file for the view.py of auth [repository is](https://github.com/django/django/blob/b9cf764be62e77b4777b3a75ec256f6209a57671/django/contrib/auth/urls.py) and well documented [here](https://docs.djangoproject.com/en/4.0/topics/auth/default/#module-django.contrib.auth.views) 
+Django's built-in features for user registeration and authentication came in handy here. [Django's docs on auth app](https://docs.djangoproject.com/en/4.0/topics/auth/default/) was clear on how to use Django built-in features. Django also provided the necessary views for the login, logout and user registration functionalities [par it's official repository](https://github.com/django/django/blob/b9cf764be62e77b4777b3a75ec256f6209a57671/django/contrib/auth/views.py). Django's url.py file for the view.py of auth [repository is](https://github.com/django/django/blob/b9cf764be62e77b4777b3a75ec256f6209a57671/django/contrib/auth/urls.py) and well documented [here](https://docs.djangoproject.com/en/4.0/topics/auth/default/#module-django.contrib.auth.views) 
 
 ### Apps
 This django project is made up of three apps namely:
