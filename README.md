@@ -26,4 +26,4 @@ This app is incharge of delivering all my templates to the end-user while simult
 ##### Test
 Head to pages/test.py, you will see the tests that I wrote for the pages app. Class "HomepageTests" contains functions testing different parts of the homepage. You can run this test within docker using: $ docker-compose exec web python manage.py test pages 
 in your terminal.
-(https://docs.djangoproject.com/en/4.0/ref/urlresolvers/#resolve)[Django's resolve()]
+(Django's resolve())[https://docs.djangoproject.com/en/4.0/ref/urlresolvers/#resolve]
