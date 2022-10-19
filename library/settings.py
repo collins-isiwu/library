@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from re import T
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,13 +39,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sites",
     # Local
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
     # Third-party
     "crispy_forms", 
     "crispy_bootstrap5", 
+    "allauth",
+    "allauth.account",
+
 ]
+
+# django-allauth config
+SITE_ID = 1 
+ACCOUNT_LOGOUT_REDIRECT = "home"
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,7 +163,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_REDIRECT_URL = "home" 
-LOGOUT_REDIRECT_URL = "home"
 
 
 # django-crispy-forms
