@@ -8,11 +8,13 @@ My intention while programming is to showcase my python OOP and Django prowess. 
 #### User Registration
 Django's third-party django-allauth came in handy while working on user registeration and authentication. [Django-allauth docs](https://github.com/pennersr/django-allauth) was clear on how to use it. Django-allauth also provided the necessary views for the login, logout and user registration functionalities [par it's official repository](https://github.com/pennersr/django-allauth). Django-allauth url.py file for the view.py of auth [repository is](https://github.com/pennersr/django-allauth/blob/master/allauth/account/urls.py).
 
+##### Test for User Registration
+accounts/tests.py file holds the code for the tests written to check if the signup page is working properly. test_signup_template, test_signup_form and test_signup_view are methods under SignUpPageTests class that tests the User registration process.
+
+
 #### Requirements
 pip freeze > requirements.txt was necessary to create a requirement.txt file within my project directly while putting down all the modules installed for this project.
 
-##### Test for User Registration
-accounts/tests.py file holds the code for the tests written to check if the signup page is working properly. test_signup_template, test_signup_form and test_signup_view are methods under SignUpPageTests class that tests the User registration process.
 
 ### Apps
 This django project is made up of three apps namely:
