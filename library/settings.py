@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from re import T
+from environs import Env
+
+env = Env()
+env.read_env()  # read .env file, if it exists
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,10 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t!@+a_qnw8=9yzqn$hwq-dj_*h)mxtr8gcd$!!n9nxvpt2#5yt'
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+DEBUG = env.bool("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -113,7 +117,8 @@ DATABASES = {
         "PASSWORD": "postgres",
         "HOST": "db",
         "PORT": 5432,
-    }
+    },
+    "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@db/postgres")
 }
 
 
@@ -168,3 +173,5 @@ LOGIN_REDIRECT_URL = "home"
 # django-crispy-forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" 
 CRISPY_TEMPLATE_PACK = "bootstrap5" 
+
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
