@@ -175,3 +175,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5" 
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+
+# default address for sending email
+DEFAULT_FROM_EMAIL = "admin@libdjango-project.com"
