@@ -19,6 +19,9 @@ class BookDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     template_name = "books/book-detail.html"
     login_url = "account_login"
     permission_required = "book.special_status"
+    """ For performance and optimization, use prefetch_related for many-to-many relations and 
+        select_related for foreign keys to avoid N + 1 Queries Problem """
+    queryset = Book.objects.all().prefetch_related('reviews__author',)
 
 
 class SearchResultsListView(ListView):
