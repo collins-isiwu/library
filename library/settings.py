@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "allauth.account",
     'django_extensions',
     "debug_toolbar",
+    'isbn_field',
     # Local
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
