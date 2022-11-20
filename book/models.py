@@ -32,7 +32,6 @@ class Book(models.Model):
         return reverse("book_detail", kwargs={'pk' : self.pk})
 
 
-
 """ Model for storing the different categories of our book"""
 class Category(models.Model):
     categorified = models.CharField(max_length=150)
@@ -43,6 +42,7 @@ class Category(models.Model):
     """ Orders categorified names alphabetically """
     class Meta:
         ordering = ['categorified']
+
 
 
 """ This model stores details about the books created by the admin which can be borrowed."""
@@ -57,27 +57,37 @@ class AdminBooks(models.Model):
     edition = models.PositiveIntegerField()
     image = models.ImageField(upload_to="admins/", blank=True)
     writer = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default='', blank=True, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_DEFAULT, default='', blank=True, null=True)
     quantity = models.PositiveIntegerField()
-    date_time = models.DateTimeField(auto_now_add=True)
-    
+    date_time = models.DateTimeField(auto_now_add=True, blank=True)
+
+
+
+
+class Review(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="reviews",)
+    review = models.CharField(max_length=255)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    time = models.DateTimeField(auto_now_add=True, blank=True)
+
+
+    def __str__(self):
+        return self.review
+
+
+class AdminBookReview(models.Model):
+    admin_book = models.ForeignKey(AdminBooks, on_delete=models.CASCADE, related_name="admin_book_reviews")
+    review = models.CharField(max_length=255)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    time = models.DateTimeField(auto_now_add=True, blank=True)
+
+
 
 class Borrow(models.Model):
     ordered_book = models.ForeignKey(AdminBooks, on_delete=models.CASCADE)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     borrow = models.BooleanField(default=False)
     time = models.DateTimeField(auto_now_add=True, blank=True)
-
-
-class Review(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="reviews",)
-    admin_book = models.ForeignKey(AdminBooks, on_delete=models.CASCADE, related_name="admin_book_reviews")
-    review = models.CharField(max_length=255)
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    time = models.DateTimeField(auto_now_add=True, blank=True)
-
-    def __str__(self):
-        return self.review
     
 
     
