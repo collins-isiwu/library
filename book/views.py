@@ -1,10 +1,13 @@
 from django.db.models import Q
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.decorators import permission_required, login_required
+from django.shortcuts import render
+from django.urls import reverse
 
 from .models import Book
 
-# Create your views here.
+""" The Views below handle Book Model """
 class BookListView(LoginRequiredMixin, ListView):
     model = Book
     context_object_name = "book_list"

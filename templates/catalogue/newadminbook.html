@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+
+{% block title %}
+    Create Admin Book
+{% endblock %}
+
+{%  block content %}
+    <h2 class="text-center">Create New Library Book</h2>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6 pt-2">
+            <form action="{% url 'createcatalogue' %}" method="post">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+            
+            <div class="form-group my-4">
+                <button type="submit" class="btn btn-dark btn-customized btn-block">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
