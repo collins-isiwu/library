@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.sites",
+    'django.contrib.humanize',
     # Third-party
     "crispy_forms", 
     "crispy_bootstrap5", 
@@ -204,6 +205,6 @@ INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 
 
 # For Cache
-CACHE_MIDDLEWARE_ALIAS = "default"
-CACHE_MIDDLEWARE_SECONDS = 604800
-CACHE_MIDDLEWARE_KEY_PREFIX = ""
+#CACHE_MIDDLEWARE_ALIAS = "default"
+#CACHE_MIDDLEWARE_SECONDS = 604800
+#CACHE_MIDDLEWARE_KEY_PREFIX = ""

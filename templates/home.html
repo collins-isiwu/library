@@ -2,10 +2,26 @@
 {% load static %}
 
 {% block title %} 
-   Home 
+   Active Library Books 
 {% endblock title %}
 
 {% block content %}
-   <h1>Homepage</h1>
-   <img src="{% static 'images/dfp.jpg' %}" alt="" class="bookcover">
+    <h2 class="text-center title">Library Books</h2>
+    <div class="container d-flex flex-wrap justify-content-center">
+
+        {% if items %}
+            <div class="card m-2 border-bottom" style="width: 20em;">
+                <a href="{% url 'bookdetail' bookdetail.id %}" class="text-decoration-none text-dark">
+                    <img class="card-img-top" src="{% if item.image %}{{ item.image }}{% else %}http://www.aaru.edu.jo/websites/aaru2/wp-content/plugins/learnpress/assets/images/no-image.png?Mobile=1&Source=%2F%5Flayouts%2Fmobile%2Fdispform%2Easpx%3FList%3D78b536db%252De7c7%252D45d9%252Da661%252Ddb2a2aa2fbaf%26View%3D6efc759a%252D0646%252D433c%252Dab6e%252D2f027ffe0799%26RootFolder%3D%252Fwebsites%252Faaru2%252Fwp%252Dcontent%252Fplugins%252Flearnpress%252Fassets%252Fimages%26ID%3D4786%26CurrentPage%3D1{% endif %}" alt="Photo of {{ item.book_title }}">
+                    <div class="card-body border-top">
+                        <h5 class="card-title text-truncate">{{ item.book_title }}</h5>
+                        <p class="card-text text-truncate"><small>{{ item.description }}</small></p>
+                    </div>
+                </a>
+            </div>
+        {% else %}
+            No active books
+        {% endif %}
+
+    </div>
 {% endblock content %}

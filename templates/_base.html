@@ -21,14 +21,11 @@
           {% if user.is_authenticated %}
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbardropdownmenu" role="button" data-toogle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <strong>My Books</strong>
+                      <strong>My SPACE</strong>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbardropdownmenu">
                       <a class="dropdown-item" href="{% url 'book_list' %}">Personal Books</a>
-                      <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
-          {% else %}
-                      <a class="nav-link mx-lg-2" href="{% url 'account_login' %}">Log In</a>
-                      <a class="nav-link mx-lg-2 " href="{% url 'account_signup' %}">Sign Up</a>
+                      <a class="dropdown-item" href="{% url 'newbook' %}">Add New Book</a>
                   </div>
           {% endif %}
               </li>
@@ -36,7 +33,7 @@
 
         <!-- Admin Books Control-->
         <ul class="navbar-nav">
-          {% if user.is_authenticated %}
+          {% if perms.catalogue.AdminBksPermissions %}
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbardropdownmenu" role="button" data-toogle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <strong>Library Books</strong>
@@ -54,6 +51,23 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         
+
+        <ul class="navbar-nav justify-content-end ml-auto">
+          {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardropdownmenu" role="button" data-toogle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-user pr-1" aria-hidden="true"></i>Signed in as <strong>{{ user.username }}</strong>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbardropdownmenu">
+                    <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
+                  </div>
+              </li>
+          {% else %}
+                  <a class="nav-link mx-lg-2" href="{% url 'account_login' %}">Log In</a>
+                  <a class="nav-link mx-lg-2 " href="{% url 'account_signup' %}">Sign Up</a>
+          {% endif %}
+      </ul>
+      
       </div>
     </div>
   </nav>

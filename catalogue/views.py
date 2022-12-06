@@ -11,13 +11,6 @@ from .forms import *
 
 
 # Create your views here.
-def index(request):
-    return render(request, "home.html", {
-        "adminbooks": Catalogue.objects.filter(active=True),
-    })
-
-
-
 @login_required
 @permission_required('book.AdminBksPermissions', raise_exception=True)
 def CreateCatalogue(request):
@@ -49,18 +42,18 @@ def CreateCatalogue(request):
 
 
 @login_required
-def BookDetail(request, BookDetail_id):
+def BookDetail(request, bookdetail_id):
 
     # Look up the relevant information from the db to load the page
-    book = Catalogue.objects.get(pk=BookDetail_id)
-    review = CatalogueReview.objects.get(pk=BookDetail_id)
+    book = Catalogue.objects.get(pk=bookdetail_id)
+    review = CatalogueReview.objects.get(pk=bookdetail_id)
     review = review.review.all()
     count = review.count()
 
 
     return render(request, "catalogue/book-detail.html", {
         'book': book,
-        "book_id": BookDetail_id,
+        "book_id": bookdetail_id,
         'review': review,
         'count': count,
         'user': request.user,

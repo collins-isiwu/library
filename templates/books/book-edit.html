@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1 class="text-center">Edit Book</h1>
+    <form action="{% url 'editbook' book.pk %}" method="post">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <div class="form-group my-4">
+            <button type="submit" class="btn btn-dark btn-customized btn-block">Save</button>
+        </div>
+    </form>
+{% endblock content %}

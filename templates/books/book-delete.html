@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h2 class="text-center">Delete Book</h2>
+    <form action="{% url 'deletebook' book.pk %}" method="post">
+        {% csrf_token %}
+        <strong><p>Are you sure you want to delete <strong>{{ book.title }}</strong></p></strong>
+        <div class="form-group my-4">
+            <button type="submit" value="Confirm" class="btn btn-danger btn-customized btn-block">Delete</button>
+        </div>
+    </form>
+{% endblock content %}

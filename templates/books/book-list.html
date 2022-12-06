@@ -4,9 +4,26 @@
 {% endblock title %}
 
 {% block content %}
-    {% for book in book_list %}
-        <div>
-            <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
-        </div>
-    {% endfor %}
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Uploaded Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in book_list %}
+        <tr class="table-active">
+            <td>
+                <div>
+                    <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+                </div>
+            </td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.date_time }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}

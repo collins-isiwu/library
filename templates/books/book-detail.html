@@ -7,9 +7,13 @@
         {% if book.cover %}
             <img class="bookcover" src="{{ book.cover.url }}" alt="{{ book.title }}">
         {% endif %}
-        <h2><a href="">{{ book.title }}</a></h2>
+        <h2>{{ book.title }}</h2>
         <p>Author: {{ book.author }}</p>
-        <p>Price: {{ book.price }}</p>
+        <p><a class="btn btn-outline-dark" href="{{ book.document.url }}">Download Doc</a></p>
+        <p>Time: {{ book.date_time}}</p>
+        <strong><a href="{% url 'editbook' book.pk %}">Edit a Book</a></strong>
+        <strong><a href="{% url 'deletebook' book.pk %}">Delete Book</a></strong>
+        <!--<p>Price: {{ book.price }}</p>-->
         <div>
             <h3>Reviews</h3>
             <ul>
