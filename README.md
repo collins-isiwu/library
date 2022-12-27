@@ -8,6 +8,10 @@ My intention while programming is to showcase my python OOP and Django prowess. 
 My final project is distinctive and complex because I went beyond the course curriculum to learn and implement a Django application that is ready for production by learning how to use POSTgreSQL in Django, Docker, base directory templates and static files, advanced django settings in settings.py file, file/image uploads in Django to list but a few. I also implemented Django third-party packages like django-debug-toolbar, allauth, crispy_forms, crispy_bootstrap5 and django-isbn-field. This project also contains four different apps including: pages app, catalogue app, book app and accounts app. I implemented permission on this project, which restricted certain users from adding Library Books. This project is also complex and unique because it utilizes UUID as the primary key of Catalogue Model and Book Model found in Catalogue.models and Book.models respectively. UUID is excellent in achieving good security against hackers.
 
 
+### Google Books API
+I implemented Google Books API using JQUERY. It allows users to search for any book they have in mind. The list of books bearing that name will be displayed. Users can click on such books to be taken to the official google book page where they can read up the book and get more information on it. 
+
+
 #### User Registration
 Django's third-party django-allauth came in handy while working on user registeration and authentication. [Django-allauth docs](https://github.com/pennersr/django-allauth) was clear on how to use it. Django-allauth also provided the necessary views for the login, logout and user registration functionalities [par it's official repository](https://github.com/pennersr/django-allauth). Django-allauth url.py file for the view.py of auth [repository is](https://github.com/pennersr/django-allauth/blob/master/allauth/account/urls.py).
 
