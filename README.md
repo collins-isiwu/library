@@ -5,7 +5,7 @@ Library is a web application built with Django that makes API calls to Google Bo
 My intention while programming is to showcase my python OOP and Django prowess. I wanted to make a Django project that is ready for production. Which is why I built the project within DOCKER. The database supporting this web application is POSTgreSQL!
 
 ### Distinctiveness and Complexity
-My final project is distinctive and complex because I went beyond the course curriculum to learn and implement a Django application that is ready for production by learning how to use POSTgreSQL in Django, Docker, base directory templates and static files, advanced django settings in settings.py file, file/image uploads in Django to list but a few. I also implemented Django third-party packages like django-debug-toolbar, allauth, crispy_forms, crispy_bootstrap5 and django-isbn-field. This project also contains four different including: pages app, catalogue app, book app and accounts app. I implemented permission on this project, which restricted certain users from adding Library Books. This project is also complex and unique because it utilizes UUID as the primary key of Catalogue Model and Book Model found in Catalogue.models and Book.model respectively. UUID is excellent in achieving good security against hackers.
+My final project is distinctive and complex because I went beyond the course curriculum to learn and implement a Django application that is ready for production by learning how to use POSTgreSQL in Django, Docker, base directory templates and static files, advanced django settings in settings.py file, file/image uploads in Django to list but a few. I also implemented Django third-party packages like django-debug-toolbar, allauth, crispy_forms, crispy_bootstrap5 and django-isbn-field. This project also contains four different apps including: pages app, catalogue app, book app and accounts app. I implemented permission on this project, which restricted certain users from adding Library Books. This project is also complex and unique because it utilizes UUID as the primary key of Catalogue Model and Book Model found in Catalogue.models and Book.models respectively. UUID is excellent in achieving good security against hackers.
 
 
 #### User Registration
@@ -68,7 +68,7 @@ Static Files are also found in the BASE DIRECTORY to improve speed.
 
 
 #### Media Files
-Media Files are those files uploaded by the user while static files includes JavaScript, CSS and images uploaded by the developer. Media files can be found in the BASE DIRECTORY. It includes images and documents uploaded by the USER.
+Media Files are those files uploaded by the user while static files includes JavaScript, CSS and images uploaded by the developer during development. Media files can be found in the BASE DIRECTORY. It includes images and documents uploaded by the USER.
 
 
 #### DOCKER
@@ -79,5 +79,17 @@ The docker files present in this project includes docker-compose-prod.yml, docke
 
 #### Environment Varibles
 Envirnoment varibles was also set for this project especially for Django's SECRET KEY. This is to ensure that the secret key of this web application is not open for users to see in GITHUB or any other source code sharing services. Django's SECRET KEY as Django said must be kept secret!
+
+
+### How to Run.
+1. To run this application, you will need to install Docker on your local machine.
+2. Open a virtual environment and install django using  python -m pip install django~=4.0.0
+3. Run  python manage.py runserver
+4. Run deactivate to deactivate virtual environment.
+5. Run docker-compose up -d --build (this installs all the necessary dependencies for this application to run).
+6. You are ready to run this application!
+7. For every django command that you have to run be sure to pre-fix docker-compose exec web before the command! For instance, you want to run python manage.py runserver to start django. Do it like it "docker-compose exec web python manage.py runserver" or "docker-compose exec web python manage.py makemigrations" to create migrations, and so on and so forth.
+8. Run docker-compose down to stop Docker
+9. Run docker-compose up -d to start up docker without reinstalling dependencies and requirements all over again!
 
 
