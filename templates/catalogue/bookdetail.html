@@ -1,23 +1,61 @@
 {% extends "_base.html" %}
 {% load humanize %}
 
-{% block title %}
-    {{ book.book_title }}
-{% endblock %}
+{% block title %} {{ book.book_title }} {% endblock title %}
 
-{%  block content %}
-    {% if book.active == False %}
-        <div class="alert alert-dark text-center Yo" role="alert">
-            This auction is won and closed.
-        </div>
-    {% endif %}
+{% block content %}
+    <div class="bookdetail">
+        <img style="max-height: 400px;" class="img-fluid mx-auto" src="{% if book.image %}{{ book.image.url }}{% else %}http://www.aaru.edu.jo/websites/aaru2/wp-content/plugins/learnpress/assets/images/no-image.png?Mobile=1&Source=%2F%5Flayouts%2Fmobile%2Fdispform%2Easpx%3FList%3D78b536db%252De7c7%252D45d9%252Da661%252Ddb2a2aa2fbaf%26View%3D6efc759a%252D0646%252D433c%252Dab6e%252D2f027ffe0799%26RootFolder%3D%252Fwebsites%252Faaru2%252Fwp%252Dcontent%252Fplugins%252Flearnpress%252Fassets%252Fimages%26ID%3D4786%26CurrentPage%3D1{% endif %}" alt="Photo of {{ book.book_title }}">
+        <h2>{{ book.book_title }}</h2>
+        <p>ISBN: {{ book.isbn }}</p>
+        <p>Call Number: {{ book.book_id }}</p>
+        <p>Edition: {{ book.edition }}</p>
+        <p>Category: {{ book.category }}</p>
+        <p>Quantity: {{ book.quantity }}</p>
+        <p>Active:{{ book.active }}</p>
+        <p>Author: {{ book.authors }}</p>
+        <p>Description: {{ book.description }}</p>
+        <p>Posted: {{ book.date_time|naturaltime }}</p>
 
-    <div class="container-lg pt-2 pb-2 Yo">
-        <!--Image, Price section-->
-        <div class="row mt-3 align-items-center">
-            <!--Image-->
-            <div class="col-md-6 col-12 d-flex">
-                <img style="max-height: 400px;" class="img-fluid mx-auto" src="{% if book.image %}{{ book.image }} {% else %}http://www.aaru.edu.jo/websites/aaru2/wp-content/plugins/learnpress/assets/images/no-image.png?Mobile=1&Source=%2F%5Flayouts%2Fmobile%2Fdispform%2Easpx%3FList%3D78b536db%252De7c7%252D45d9%252Da661%252Ddb2a2aa2fbaf%26View%3D6efc759a%252D0646%252D433c%252Dab6e%252D2f027ffe0799%26RootFolder%3D%252Fwebsites%252Faaru2%252Fwp%252Dcontent%252Fplugins%252Flearnpress%252Fassets%252Fimages%26ID%3D4786%26CurrentPage%3D1{% endif %}" alt="Photo of {{ book.book_title }}">
+        <!-- Borrow -->
+        <form action="{% url 'borrow' book.book_title %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-dark ml-1">Loan</button>
+        </form>
+
+        <!-- Return the Borrowed Book -->
+        <p><strong><a href="{% url 'returnbook' book.pk %}">Return Book</a></strong></p>
+
+        <!--Review-->
+        <div>
+            <h3>Reviews</h3>
+            <ul>
+                {% for review in reviews %}
+                    <li>{{ review.review }} ({{ review.author }})</li>
+                {% endfor %}
+            </ul>
+
+
+            <!--Comment section for each listing-->
+            <div class="row py-4 justify-content-center">
+                <div class="col col-sm-10 mx-2 mx-sm-0">
+                    <h4>Comments <span class="badge badge-secondary">{{ total_comments }}</span></h4>
+                    <!-- Comment form -->
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'addcomments' book.pk %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group pt-2">
+                                {{ reviewform }}
+                            </div>
+                            <div class="form-group text-right mb-2 pt-2">
+                                <input type="submit" class="btn btn-outline-dark" value="Add Comment">
+                            </div>
+                        </form>
+                    {% else %}
+                        <p><strong><a href="{% url 'login' %}" >Sign in to Add Comment</a></strong></p>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
-{%  endblock content %}
+{% endblock content %}

@@ -22,3 +22,17 @@ a:hover {
     text-decoration:none; 
     cursor:pointer;  
 }
+
+h2, h1 {
+    font-family: "Righteous", sans-serif;
+}
+
+#header {
+    font-size: 3rem;
+}
+
+.book-list {
+    margin-top: 50px;
+    visibility: hidden;
+}
+

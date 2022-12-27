@@ -7,6 +7,7 @@ from django.contrib import admin
 class catalogueReviewInline(admin.TabularInline):
     model = Catalogue
 
+
 class AdminBk(admin.ModelAdmin):
     inline = [
         catalogueReviewInline,
@@ -14,7 +15,7 @@ class AdminBk(admin.ModelAdmin):
     list_display = ("isbn", "book_title", "edition", "category", "quantity")
 admin.site.register(Catalogue, AdminBk)
 admin.site.register(Borrow)
-admin.site.register(Category)
 admin.site.register(CatalogueReview)
+admin.site.register(Category)
 admin.site.register(Retured)
 

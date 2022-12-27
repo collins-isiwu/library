@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h2 class="text-center">Loan Book</h2>
+    <strong><p><strong>{{ title }}</strong> has been borrowed</p></strong>
+    <p>The Return Date is {{ enddate }}</p>
+    <p>A fine of <strong>${{ fine }}</strong> will be incured per day as from {{ enddate }} </p>
+    <p><strong>${{ damagefine }}</strong> if returned with damages!</p>
+
+    <div class="tex-center">
+        <p><strong><a href="{% url 'home' %}">Return To Home</a></strong></p>
+    </div>
+{% endblock content %}

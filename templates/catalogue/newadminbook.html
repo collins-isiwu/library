@@ -8,7 +8,7 @@
     <h2 class="text-center">Create New Library Book</h2>
     <div class="row justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6 pt-2">
-            <form action="{% url 'createcatalogue' %}" method="post">
+            <form enctype="multipart/form-data" action="{% url 'createcatalogue' %}" method="post">
                 {% csrf_token %}
 
                 {{ form.as_p }}

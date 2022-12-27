@@ -1,0 +1,26 @@
+{% extends "_base.html" %}
+
+{% block title %} 
+   Google Books
+{% endblock title %}
+
+{% block content %}
+    <!-- Google Books -->
+    <div class="container">
+        <div class="text-center mt-5" id="title"><h2>Book Finder</h2></div>
+        <div class="row">
+            <div id="input" class="input-group mx-auto col-lg-6 col-md-8 col-sm-12">
+                <input type="text" class="form-control" placeholder="Search Books" id="search-box">
+                <button id="search" class="btn btn-outline-dark" onclick="">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-list">
+        <h2 class="text-text">Search Results</h2>
+        <div id="list-output">
+            <div class="row"></div>
+        </div>
+    </div>
+
+{% endblock content %}

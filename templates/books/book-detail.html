@@ -1,4 +1,5 @@
 {% extends "_base.html" %}
+{% load humanize %}
 
 {% block title %} {{ book.title }} {% endblock title %}
 
@@ -10,17 +11,8 @@
         <h2>{{ book.title }}</h2>
         <p>Author: {{ book.author }}</p>
         <p><a class="btn btn-outline-dark" href="{{ book.document.url }}">Download Doc</a></p>
-        <p>Time: {{ book.date_time}}</p>
+        <p>Added: {{ book.date_time|naturaltime }}</p>
         <strong><a href="{% url 'editbook' book.pk %}">Edit a Book</a></strong>
         <strong><a href="{% url 'deletebook' book.pk %}">Delete Book</a></strong>
-        <!--<p>Price: {{ book.price }}</p>-->
-        <div>
-            <h3>Reviews</h3>
-            <ul>
-                {% for review in book.reviews.all %}
-                    <li>{{ review.review }} ({{ review.author }})</li>
-                {% endfor %}
-            </ul>
-        </div>
     </div>
 {% endblock content %}
