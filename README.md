@@ -88,7 +88,7 @@ Envirnoment varibles was also set for this project especially for Django's SECRE
 4. Run deactivate to deactivate virtual environment.
 5. Run docker-compose up -d --build (this installs all the necessary dependencies for this application to run).
 6. You are ready to run this application!
-7. For every django command that you have to run be sure to pre-fix docker-compose exec web before the command! For instance, you want to run python manage.py runserver to start django. Do it like it "docker-compose exec web python manage.py runserver" or "docker-compose exec web python manage.py makemigrations" to create migrations, and so on and so forth.
+7. For every django command that you have to run be sure to pre-fix docker-compose exec web before the command! For instance, you want to run python manage.py runserver to start django. Do it like this: "docker-compose exec web python manage.py runserver" or "docker-compose exec web python manage.py makemigrations" to create migrations, and so on and so forth.
 8. Run docker-compose down to stop Docker
 9. Run docker-compose up -d to start up docker without reinstalling dependencies and requirements all over again!
 
